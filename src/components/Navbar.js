@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled, {css} from 'styled-components/macro';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { menuData } from '../data/MenuData';
 import { Button } from './Button';
 import Bars from '../images/bars.svg';
@@ -72,8 +72,36 @@ const NavBtn = styled.div`
 `;
 
 const Navbar = ({toggle}) => {
+  const [navbar, setNavbar] = useState(false);
+  const location = useLocation();
+
+  const changeBackground = () => {
+    if(window.pageYOffset >= 60){
+      setNavbar(true);
+    }else{
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    const watchScroll = () => {
+      window.addEventListener('scroll', changeBackground);
+    }
+
+    watchScroll();
+
+    return () => {
+      window.removeEventListener('scroll', changeBackground);
+    }
+  },[]);
+
+  let style = {
+    backgroundColor: navbar || location.pathname !== "/" ? '#cd853f' : 'transparent',
+    transition: '.4s'
+  }
+
   return (
-    <Nav>
+    <Nav style={style}>
       <Logo to="/">JAVAS</Logo>
       <MenuBars onClick={toggle}/>
       <NavMenu>
