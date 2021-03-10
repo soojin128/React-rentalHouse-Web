@@ -102,7 +102,7 @@ const Navbar = ({toggle}) => {
 
   return (
     <Nav style={style}>
-      <Logo to="/">JAVAS</Logo>
+      <Logo to="/React-rentalHouse-Web">JAVAS</Logo>
       <MenuBars onClick={toggle}/>
       <NavMenu>
         {menuData.map((item,index) => (
