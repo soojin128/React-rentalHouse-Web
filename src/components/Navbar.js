@@ -96,7 +96,7 @@ const Navbar = ({toggle}) => {
   },[]);
 
   let style = {
-    backgroundColor: navbar || location.pathname !== "/React-rentalHouse-Web" ? '#cd853f' : 'transparent',
+    backgroundColor: navbar || location.pathname !== "/React-rentalHouse-Web/" ? '#cd853f' : 'transparent',
     transition: '.4s'
   }
 

@@ -34,7 +34,7 @@ useEffect(() => {
     <Navbar toggle={toggle}/>
     <Dropdown isOpen={isOpen} toggle={toggle}/>
     <Switch>
-      <Route path="/React-rentalHouse-Web" exact component={Home}/>
+      <Route path="/React-rentalHouse-Web/" exact component={Home}/>
       <Route path="/about" exact component={About}/>
       <Route path="/homes" exact component={Homes}/>
       <Route path="/rentals" exact component={Rentals}/>
